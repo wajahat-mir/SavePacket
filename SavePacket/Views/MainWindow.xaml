@@ -1,0 +1,31 @@
+﻿<Window x:Class="SavePacket.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Packet Capture" Height="800" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1">
+            <StackPanel Name="stkPnl">
+                <GroupBox Header="Please select an Interface" Margin="10" Padding="10">
+                    <StackPanel Name="InterfacePanel" Visibility="{Binding Path=InterfacePnlVisibility}">
+                    </StackPanel>
+                </GroupBox>
+                <StackPanel>
+                    <GroupBox Header="{Binding Path=lblInterfaceDescription}"  Margin="10" Padding="10">
+                        <StackPanel Name="PacketPanel">
+                            <Label Target="{Binding ElementName=lblPacketIP}">Packet IP</Label>
+                            <TextBlock Name="lblPacketIP" Text="{Binding Path=PacketIP}"></TextBlock>
+                            <Label Target="{Binding ElementName=lblPacketLength}">Packet Length</Label>
+                            <TextBlock Name="lblPacketLength" Text="{Binding Path=PacketLength}"></TextBlock>
+                            <Label Target="{Binding ElementName=lblPacketTime}">Packet Time</Label>
+                            <TextBlock Name="lblPacketTime" Text="{Binding Path=PacketTime}"></TextBlock>
+                            <Button Click="EndCapture_Click" Width="100" Visibility="{Binding Path=StopCaptureVisibility}">Stop Capture</Button>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
